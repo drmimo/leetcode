@@ -1,4 +1,4 @@
-def shortestToChar(string, char):
+"""def shortestToChar(string, char):
 	listOfDistances = []
 	for i in range(len(string)):
 		if string[i] == char:
@@ -27,4 +27,28 @@ def shortestToChar(string, char):
 #[0,1,2,3]
 print(shortestToChar('baaa', 'b'))
 
+print(shortestToChar('loveleetcode', 'e'))
+"""
+
+def shortestToChar(string, char):
+	listOfDists = []
+	for i in range(len(string)):
+		if string[i] ==  char:
+			listOfDists.append(0)
+		else:
+			distForward =  string[i+1:].find(char)
+			distBackward = string[0 if i-1 < 0 else i-1 ::-1].find(char)
+			
+			if  distForward == -1:
+				listOfDists.append(distBackward + 1)
+			elif distBackward == -1:
+				listOfDists.append(distForward + 1)
+			elif distForward <= distBackward:
+				listOfDists.append(distForward + 1)
+			else:
+				listOfDists.append(distBackward + 1)
+
+	return listOfDists
+
+print(shortestToChar('baaa', 'b'))
 print(shortestToChar('loveleetcode', 'e'))
