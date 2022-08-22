@@ -1,4 +1,7 @@
 def reverse(x):
+	"""This function reverses an integer and returns its integer reversed form \n
+	it works with all values only if their reversed form doesn't pass the 32-bits representation"""
+	
         #Starting first with reversing the integer
 	#Trying all the time to use a pythonic way
         reverseAbs = int(str(abs(x))[::-1])
